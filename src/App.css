@@ -1,0 +1,17 @@
+.App-header {
+  min-height: 60px;
+  line-height: 60px;
+  font-size: 18px;
+  color: white;
+  background-color: #282c34;
+}
+
+.App-header > h1 {
+  margin: 0;
+}
+
+.App-body {
+  height: calc(100vh - 60px);
+  padding: 20px 10px;
+  background-color: #ffffff;
+}
