@@ -1,0 +1,40 @@
+.betting-ball-input__row + .betting-ball-input__row {
+	margin-top: 20px;
+}
+
+.betting-balls-block {
+	display: flex;
+	width: calc((32px * 10) + 48px);
+	justify-content: space-between;
+	align-items: center;
+}
+
+.betting-balls-block__title {
+	text-align: center;
+	width: 48px;
+}
+
+.betting-balls-block__balls-wrapper {
+	display: flex;
+	width: calc(32px * 10);
+}
+
+.betting-balls-block__ball {
+	width: 32px;
+}
+
+.quick-options-block {
+	display: flex;
+	width: calc((32px * 6) + 48px);
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.quick-options-block__option {
+	flex: 1;
+	text-align: center;
+}
+
+.quick-options-block__option + .quick-options-block__option {
+	margin-left: 16px;
+}

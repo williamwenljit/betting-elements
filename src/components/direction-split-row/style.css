@@ -1,0 +1,8 @@
+.horizontal-split-row {
+	display: flex;
+}
+
+.horizontal-split-row > div {
+	flex: 1;
+	flex-basis: auto;
+}
