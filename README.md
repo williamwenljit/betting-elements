@@ -14,3 +14,12 @@ npm install
 
 npm run start
 ```
+
+### 2. 進入點
+
+進入點為各個玩法的 service-locator
+```
+11x5: src/components/betting-element/11x5/index.js
+
+shishicai: src/components/betting-element/shishicai/index.js
+```
