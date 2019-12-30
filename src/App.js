@@ -35,6 +35,14 @@ function App() {
           />
         </div>
         <div style={{ marginTop: 30 }}>
+          <h4>(mobile) 時時彩-任二-组选复式</h4>
+          <SSCBettingElement1
+            isMobile
+            onUpdateCombination={_handleUpdateCombination}
+            onUpdatePosition={_handleUpdatePosition}
+          />
+        </div>
+        <div style={{ marginTop: 30 }}>
           <h4>時時彩-任二-组选复式</h4>
           <SSCBettingElement2
             onUpdateCombination={_handleUpdateCombination}
