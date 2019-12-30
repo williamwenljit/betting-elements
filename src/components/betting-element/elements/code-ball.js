@@ -8,16 +8,25 @@ import {
 	PositionsProvider,
 	withPositionsSelector,
 } from '../../positions-provider';
+import withEither from '../../with-either';
 import BettingWeizhiBlock from '../../betting-weizhi-block';
 import BettingBallInput from '../../betting-ball-input';
+import MobileBettingBallInput from '../../mobile-betting-ball-input';
 
 const EnhancedBettingWeizhiBlock = withPositionsSelector(BettingWeizhiBlock);
 
 const EnhancedBettingBallInput = withCodesSelector(BettingBallInput);
+const EnhancedMobileBettingBallInput = withCodesSelector(MobileBettingBallInput);
+
+const BettingBallInputWithCondition = withEither(
+	({ isMobile, }) => (isMobile),
+	EnhancedMobileBettingBallInput
+)(EnhancedBettingBallInput);
 
 const propTypes = {
 	labels: PropTypes.array,
 	codes: PropTypes.array,
+	isMobile: PropTypes.bool,
 	configs: PropTypes.object,
 	onUpdateCombination: PropTypes.func,
 	onUpdatePosition: PropTypes.func,
@@ -25,6 +34,7 @@ const propTypes = {
 const defaultProps = {
 	labels: [],
 	codes: [],
+	isMobile: false,
 	configs: {},
 	onUpdateCombination: () => {},
 	onUpdatePosition: () => {},
@@ -35,6 +45,7 @@ class CodeBallBettingElement extends Component {
 		const {
 			labels,
 			codes,
+			isMobile,
 			onUpdatePosition,
 			onUpdateCombination,
 			configs: {
@@ -59,7 +70,8 @@ class CodeBallBettingElement extends Component {
 					{/* REPLACE desktop/mobile */}
 					<div>
 						<EnhancedBettingWeizhiBlock />
-						<EnhancedBettingBallInput
+						<BettingBallInputWithCondition
+							isMobile={isMobile}
 							renderBall={(code, codeIndex, rowIndex, onChange) => (
 								// REPLACE ball style
 								<i onClick={() => onChange(rowIndex, codeIndex)}>
